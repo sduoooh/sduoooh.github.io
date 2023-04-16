@@ -8,10 +8,10 @@
   </head>
   <body>
     <div id="app">0</div>
-    <button @click="clickEvent()">click me!</button>
+    <button onClick="clickEvent()">click me!</button>
     <script>
         let a = document.getElementById('app')
-        const cilckEvent = () => {
+        const clickEvent = () => {
             if (a) {
                 console.log(a.innerHTML)
                 a.innerHTML = parseInt(a.innerHTML) + 1
