@@ -30,5 +30,95 @@
         }
       })
     </script>
+  
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World!</title>
+</head>
+
+<body>
+  <div id="app1">0</div>
+  <div>
+    <p>响应式青春版</p>
+    <p id="a">0</p>
+  </div>
+  <button onclick="ok.value = ok.value + 1">click me!</button>
+  <script>
+    class refObjectClass {
+      __value = null
+      __source = []
+      __isRef = true
+      constructor(value, source) {
+        this.__source.push(source)
+        this.__value = value
+        this.__isRef = true
+      }
+    }
+
+    const createRefObject = (value, source) => {
+      console.log(value, source)
+      if (typeof (value) === 'object' && '__isRef' in value) {
+        value = value.value
+      }
+      return new Proxy(new refObjectClass(value, source), handler)
+    }
+
+    const heyx = (source, value) => {
+      document.getElementById(source.address).innerHTML = source.function(value)
+    }
+
+    const handler = {
+      get: (target, key) => {
+        if (key !== 'value') {
+          console.warn('You should use .value to get the value of ref object')
+          throw new Error('You should use .value to get the value of ref object')
+        } else {
+          return target.__value
+        }
+      },
+      set: (target, key, value) => {
+        if (key !== 'value' && key !== 'source') {
+          console.warn('You should use .value to set the value of ref object')
+          throw new Error('You should use .value to set the value of ref object')
+        }
+        else {
+          if (key === 'source') {
+            target.__source.push(value)
+          } else {
+            target.__value = value
+            target.__source.forEach((source) => {
+              heyx(source, value)
+            })
+          }
+        }
+      }
+    }
+
+    const ref = (value, source) => {
+      return createRefObject(value, source)
+    }
+
+    const ok = ref(0, {
+      address: 'app1',
+      function: (value) => {
+        return value
+      }
+    })
+
+    ok.source = {
+      address: 'a',
+      function: (value) => {
+        return value
+      }
+    }
+  </script>
+</body>
+
+</html>
   </body>
 </html>
