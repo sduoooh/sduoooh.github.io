@@ -17,5 +17,17 @@
             }
         }
     </script>
+    <input id="input"></input>
+    <script>
+      let input1 = 0
+      let input = document.getElementById('input')
+      input.addEventListener('input', (e) => {
+        if ((/^[0-9]+$/).test(e.target.value)){
+        document.getElementById('app').innerHTML = parseInt(e.target.value)}
+        else {
+          document.getElementById('app').innerHTML = 0
+        }
+      })
+    </script>
   </body>
 </html>
