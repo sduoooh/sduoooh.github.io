@@ -6,9 +6,6 @@
   <link rel="icon" type="image/svg+xml" href="/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello World!</title>
-  <script>
-    import { ref } from "/littleVue.js"
-  </script>
 </head>
 <body>
   <div>Hello world!</div>
@@ -43,43 +40,6 @@
     <p id='ans'>0</p>
   </div>
   <button onclick="ok.value = ok.value + 1">click me!</button>
-  <script>
-    const ok = ref(0, {
-      address: 'app1',
-      function: (value) => {
-        return value
-      }
-    })
-
-    ok.source = {
-      address: 'a',
-      function: (value) => {
-        return value
-      }
-    }
-    
-    const ok2 = ref(0, {
-      address: 'b',
-      function: (value) => {
-        return value
-      }
-    })
-    
-    
-    ok2.source = {
-      address: 'ans',
-      function: (value) => {
-        return value + ok.value
-      }
-    }
-    
-    
-    ok.source = {
-      address: 'ans',
-      function: (value) => {
-        return value + ok2.value
-      }
-    }
-  </script>
+  <script type="text/javascript" src="/index.js"></script>
 </body>
 </html>
