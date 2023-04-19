@@ -10,28 +10,8 @@
 <body>
   <div>Hello world!</div>
   <div id="app">0</div>
-  <button onclick="clickEvent()">click me!</button>
-  <script>
-    let a = document.getElementById('app')
-    const clickEvent = () => {
-      if (a) {
-        a.innerHTML = parseInt(a.innerHTML) + 1
-      }
-    }
-  </script>
+  <button id="button1">click me!</button>
   <input id="input"></input>
-  <script>
-    let input1 = 0
-    let input = document.getElementById('input')
-    input.addEventListener('input', (e) => {
-      if ((/^[0-9]+$/).test(e.target.value)) {
-        document.getElementById('app').innerHTML = parseInt(e.target.value)
-      }
-      else {
-        document.getElementById('app').innerHTML = 0
-      }
-    })
-  </script>
   <div id="app1">0</div>
   <div>
     <p>响应式青春版</p>
@@ -39,7 +19,7 @@
     <p id='b'>0</p>
     <p id='ans'>0</p>
   </div>
-  <button onclick="ok.value = ok.value + 1">click me!</button>
+  <button id="button2">click me!</button>
   <script type="text/javascript" src="/index.js"></script>
 </body>
 </html>
