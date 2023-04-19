@@ -7,6 +7,8 @@ const clickEvent = () => {
   }
 }
 
+document.getElementById('button1').addEventListener('click',clickEvent)
+
 
 let input1 = 0
 let input = document.getElementById('input')
@@ -26,14 +28,18 @@ const ok = ref(0, {
       }
     })
 
-    ok.source = {
+document.getElementById('button2').addEventListener('click',()=>{
+   ok.value = ok.value + 1
+})
+
+ok.source = {
       address: 'a',
       function: (value) => {
         return value
       }
     }
     
-    const ok2 = ref(0, {
+const ok2 = ref(0, {
       address: 'b',
       function: (value) => {
         return value
@@ -41,7 +47,7 @@ const ok = ref(0, {
     })
     
     
-    ok2.source = {
+ok2.source = {
       address: 'ans',
       function: (value) => {
         return value + ok.value
