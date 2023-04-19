@@ -46,7 +46,9 @@ const ok2 = ref(0, {
       }
     })
     
-    
+
+// 下面这俩是ans的绑定，显然地址和方法不应该绑在数据上，而应该抽出来单独管理。
+
 ok2.source = {
       address: 'ans',
       function: (value) => {
