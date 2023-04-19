@@ -39,6 +39,8 @@
   <div>
     <p>响应式青春版</p>
     <p id="a">0</p>
+    <p id='b'>0</p>
+    <p id='ans'>0</p>
   </div>
   <button onclick="ok.value = ok.value + 1">click me!</button>
   <script>
@@ -53,6 +55,29 @@
       address: 'a',
       function: (value) => {
         return value
+      }
+    }
+    
+    const ok2 = ref(0, {
+      address: 'b',
+      function: (value) => {
+        return value
+      }
+    })
+    
+    
+    ok2.source = {
+      address: 'ans',
+      function: (value) => {
+        return value + ok.value
+      }
+    }
+    
+    
+    ok.source = {
+      address: 'ans',
+      function: (value) => {
+        return value + ok2.value
       }
     }
   </script>
