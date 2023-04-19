@@ -21,7 +21,7 @@ input.addEventListener('input', (e) => {
   }
 })
 
-const ok = ref(0, {
+const ok1 = ref(0, {
       address: 'app1',
       function: (value) => {
         return value
@@ -29,10 +29,10 @@ const ok = ref(0, {
     })
 
 document.getElementById('button2').addEventListener('click',()=>{
-   ok.value = ok.value + 1
+   ok1.value = ok1.value + 1
 })
 
-ok.source = {
+ok1.source = {
       address: 'a',
       function: (value) => {
         return value
@@ -52,12 +52,12 @@ const ok2 = ref(0, {
 ok2.source = {
       address: 'ans',
       function: (value) => {
-        return value + ok.value
+        return value + ok1.value
       }
     }
     
     
-    ok.source = {
+    ok1.source = {
       address: 'ans',
       function: (value) => {
         return value + ok2.value
