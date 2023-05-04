@@ -2,34 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World!</title>
 </head>
 
 <body>
-    <div>Hello world!</div>
-    <div><span>你现在使用的是 <span id="device">null</span>， 目前页面宽度为： <span id="width1">0</span> or <span id="width2">0</span>
-        </span></div>
-    <script>
+  <div>Hello world!</div>
+  <div><span>你现在使用的是 <span id="device">null</span>， 目前页面宽度为： <span id="width">0</span></span></div>
+  <script>
 
-        document.getElementById('device').innerHTML = navigator.userAgent
+    document.getElementById('device').innerHTML = navigator.userAgent
+    document.getElementById('width').innerHTML = document.body.clientWidth
 
-        window.onresize = function () {
-            var target = this;
-            if (target.resizeFlag) {
-                clearTimeout(target.resizeFlag);
-            }
+    window.onresize = function () {
+      var target = this;
+      if (target.resizeFlag) {
+        clearTimeout(target.resizeFlag);
+      }
 
-            document.getElementById('width1').innerHTML = document.body.clientWidth
-            document.getElementById('width2').innerHTML = document.body.getBoundingClientRect()
+      document.getElementById('width').innerHTML = document.body.clientWidth
 
-            target.resizeFlag = setTimeout(function () {
-                target.resizeFlag = null;
-            }, 100);
-        }
-    </script>
+      target.resizeFlag = setTimeout(function () {
+        target.resizeFlag = null;
+      }, 100);
+    }
+  </script>
 </body>
 
 </html>
